@@ -1,4 +1,5 @@
-# IceFit ![IceFit (4)](https://github.com/Kolarov22/WAD_Project/assets/132004909/97460a05-7db4-4898-9949-c205b04ac4aa)
+# IceFit 
+![Uploading IceFit (4).png…]()
 
 ### Developed by: 
 - Hristea Mircea mirceaalexandru430@gmail.com
