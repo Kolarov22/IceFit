@@ -1,10 +1,12 @@
 # IceFit
 
+![IceFit (3)](https://github.com/Kolarov22/WAD_Project/assets/132004909/c9d865e0-e7e9-4e0c-96bf-28957ddc6417)
+
+
 ### Developed by: 
 - Hristea Mircea mirceaalexandru430@gmail.com
 - Chirita Gabriel gabriel.chirita@stud.fil.upb.ro
 - Pop Fabius fabiuspop3@gmail.com
----![IceFit (2)](https://github.com/Kolarov22/WAD_Project/assets/132004909/4629c0ee-3c10-4b44-99c9-1b02664029b4)
 
 
 ### Short description:
