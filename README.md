@@ -3,7 +3,7 @@
 
 ### Developed by: 
 - Hristea Mircea mirceaalexandru430@gmail.com
-- Chirita Gabriel gabriel.chirita@stud.fil.upb.ro
+- Chirita Gabriel gabriel.chirita@stud.fils.upb.ro
 - Pop Fabius fsp.talkbussiness@gmail.com
 
 
