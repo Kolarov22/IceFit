@@ -4,7 +4,8 @@
 - Hristea Mircea mirceaalexandru430@gmail.com
 - Chirita Gabriel gabriel.chirita@stud.fil.upb.ro
 - Pop Fabius fabiuspop3@gmail.com
----
+---![IceFit (2)](https://github.com/Kolarov22/WAD_Project/assets/132004909/4629c0ee-3c10-4b44-99c9-1b02664029b4)
+
 
 ### Short description:
 The “IceFit” application is a platform designed to assist people in achieving their goal of a healthier lifestyle, which includes training exercises, nutrition guides, and fitness goals. It can facilitate communication between instructors and clients.
