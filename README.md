@@ -21,4 +21,6 @@ To accomplish this, we are going to use a stack of technologies. We are consider
 - Admins have access to all information of the database.
 - Clients can pay for the services in a secure manner.
 
+### Figma Mock-Up:
+https://www.figma.com/file/gZBsDxppHckSWcrBXzVmyk/IceFit?type=design&node-id=112%3A621&mode=design&t=iZuRf0CWgmiZHAlv-1
 
