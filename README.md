@@ -24,3 +24,10 @@ To accomplish this, we are going to use a stack of technologies. We are consider
 ### Figma Mock-Up:
 https://www.figma.com/file/gZBsDxppHckSWcrBXzVmyk/IceFit?type=design&node-id=112%3A621&mode=design&t=iZuRf0CWgmiZHAlv-1
 
+### Market research persona:
+
+![WAD_UXPersona (1)](https://github.com/Kolarov22/WAD_Project/assets/82868617/8570a0a7-4bc3-4512-b3f1-76fb52b58a27)
+
+
+
+
