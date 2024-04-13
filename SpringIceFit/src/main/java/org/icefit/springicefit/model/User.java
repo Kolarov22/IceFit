@@ -1,13 +1,19 @@
 package org.icefit.springicefit.model;
 
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
-@Table(name = "User")
+@Table(name = "users")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id",nullable = false)
     private int id;
     @Column(name ="username",nullable = false, unique = true)
@@ -21,6 +27,24 @@ public class User {
     @Column(name ="lastName",nullable = false)
     private String lastName;
 
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<Role> roles=new ArrayList<>();
+
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        for(Role role : roles)
+            authorities.add(new SimpleGrantedAuthority(role.toString()));
+        return authorities;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
     public int getId() {
         return id;
