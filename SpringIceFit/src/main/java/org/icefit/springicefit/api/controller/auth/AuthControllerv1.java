@@ -4,7 +4,6 @@ import jakarta.validation.Valid;
 import org.icefit.springicefit.api.model.LoginBody;
 import org.icefit.springicefit.api.model.LoginResponse;
 import org.icefit.springicefit.api.model.RegistrationBody;
-import org.icefit.springicefit.model.User;
 import org.icefit.springicefit.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +13,13 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/auth/v1")
-public class AuthController {
+public class AuthControllerv1 {
 
+
+    /*IN AUTHCONTROLLERV1 WE HAVE THE THYMELEAF IMPLENETANTION FOR ENDPOINTS*/
     private UserService userService;
 
-    public AuthController(UserService userService) {
+    public AuthControllerv1(UserService userService) {
         this.userService = userService;
     }
 
@@ -33,7 +34,8 @@ public class AuthController {
         model.addAttribute("loginBody", new LoginBody());
         return "login";
     }
-    //@RequestBody - will give a json, if using postman its ok but i created basic html with thymeleaf to check in browser
+    //@RequestBody - all the data will be pass to the server through a full JSON body
+    //@ModelAttribute - will take a query string, so all the data is passed to the server through the url // used for binding data from request param
     @PostMapping("/register")
     public ResponseEntity registerUser(@Valid @ModelAttribute RegistrationBody registrationBody) {
         try {
@@ -41,6 +43,17 @@ public class AuthController {
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        }
+    }
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponse> loginUser(@Valid @ModelAttribute LoginBody loginBody){
+        String jwt = userService.loginUser(loginBody);
+        if (jwt == null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }else{
+            LoginResponse response = new LoginResponse();
+            response.setJwt(jwt);
+            return ResponseEntity.ok(response);
         }
     }
 }

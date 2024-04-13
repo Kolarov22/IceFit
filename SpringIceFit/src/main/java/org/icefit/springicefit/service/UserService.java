@@ -36,7 +36,7 @@ public class UserService {
         user.setPassword(encryptionService.encryptPassword(registrationBody.getPassword()));
 
         //WHEN CREATING USER - WE AUTOMATICALLY ASSIGN HIS ROLE AS CLIENT
-        user.getRoles().add(Role.ROLE_ADMIN);
+        user.getRoles().add(Role.ROLE_CLIENT);
 
         return userDao.save(user);
     }

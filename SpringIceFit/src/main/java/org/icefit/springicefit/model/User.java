@@ -1,5 +1,6 @@
 package org.icefit.springicefit.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -20,6 +21,7 @@ public class User {
     private String username;
     @Column(name ="email",nullable = false, unique = true)
     private String email;
+    @JsonIgnore
     @Column(name ="password",nullable = false)
     private String password;
     @Column(name ="firstName",nullable = false)
@@ -27,14 +29,15 @@ public class User {
     @Column(name ="lastName",nullable = false)
     private String lastName;
 
-
+    @JsonIgnore
     @ElementCollection(fetch = FetchType.EAGER)
     private List<Role> roles=new ArrayList<>();
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        for(Role role : roles)
+        for(Role role : roles) {
             authorities.add(new SimpleGrantedAuthority(role.toString()));
+        }
         return authorities;
     }
 

@@ -8,14 +8,17 @@ import org.icefit.springicefit.model.User;
 import org.icefit.springicefit.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("/auth/v2")
 public class AuthControllerv2 {
 
+
+    /*IN AUTHCONTROLLERV2 WE TEST THE ENDPOINTS WITH POSTMAN -- JSON*/
     private UserService userService;
     public AuthControllerv2(UserService userService) {
         this.userService = userService;
@@ -40,6 +43,11 @@ public class AuthControllerv2 {
             response.setJwt(jwt);
             return ResponseEntity.ok(response);
         }
+    }
+
+    @GetMapping("/status")
+    public User getLoggedInUserProfile(@AuthenticationPrincipal User user){
+        return user;
     }
 
 }
