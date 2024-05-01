@@ -4,6 +4,9 @@ import Navbar from './components/Navbar'
 import Navigator from './components/Navigator'
 import LandingHero from './components/LandingHero'
 import Contact from './components/Contact'
+import Subscriptions from './components/Subscriptions'
+import SignUp from './components/SignUp'
+import SignIn from './components/SignIn'
 
 function App() {
   
@@ -18,8 +21,7 @@ function App() {
                               <div className="ellipse ellipse4"></div>
                             </section>
                             <div className="glass overflow-hidden">
-                                <Navbar />
-                                <Contact />
+                              <SignIn/>
                                 
                                 
                             
