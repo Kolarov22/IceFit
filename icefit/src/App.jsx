@@ -7,6 +7,12 @@ import Contact from './components/Contact'
 import Subscriptions from './components/Subscriptions'
 import SignUp from './components/SignUp'
 import SignIn from './components/SignIn'
+import PaymentConfirmed from './components/PaymentConfirmed'
+import PaymentInterface from './components/PaymentInterface'
+import ClientSettings from './components/ClientSettings'
+import TrainingPlan from './components/TrainingPlan'
+import InstructorDashboard from './components/InstructorDashboard'
+
 
 function App() {
   
@@ -20,11 +26,9 @@ function App() {
                               <div className="ellipse ellipse3"></div>
                               <div className="ellipse ellipse4"></div>
                             </section>
-                            <div className="glass overflow-hidden">
-                              <SignIn/>
-                                
-                                
-                            
+                            <div className="glass overflow-auto">
+                               <Navigator/>
+                                <InstructorDashboard />                         
                             </div>
                   
     </>

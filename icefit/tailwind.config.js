@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#0F245B"
+        primary: "#0F245B",
+        btnGreen: "#00E817",
+        confirmGreen: "#00810D",
       },
       
     },
