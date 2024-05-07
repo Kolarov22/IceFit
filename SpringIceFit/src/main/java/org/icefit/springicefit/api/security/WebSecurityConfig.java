@@ -23,8 +23,10 @@ public class WebSecurityConfig {
         http.csrf().disable().cors().disable();
         http.addFilterBefore(jwtRequestFilter, AuthorizationFilter.class); // ADD THE REQUEST FILTER BEFORE THE AUTH
         http.authorizeHttpRequests()
-                .requestMatchers("/","/auth/v1/register","/auth/v1/login","/auth/v2/register","/auth/v2/login").permitAll()
-                .requestMatchers(HttpMethod.GET,"/auth/v2/status").hasAnyAuthority("ROLE_ADMIN")
+                .requestMatchers("/","/auth/v1/register","/auth/v1/login","/auth/v2/registerClient","/auth/v2/registerInstructor"
+                        ,"/auth/v2/login","/auth/v2/registerAdmin").permitAll()
+                .requestMatchers("/auth/v2/status").hasAnyAuthority("ROLE_ADMIN")
+                .requestMatchers("/auth/v2/plan").hasAnyAuthority("ROLE_INSTRUCTOR")
                 .anyRequest().authenticated();
         return http.build();
     }

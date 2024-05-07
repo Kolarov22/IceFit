@@ -3,7 +3,7 @@ package org.icefit.springicefit.api.controller.auth;
 import jakarta.validation.Valid;
 import org.icefit.springicefit.api.model.LoginBody;
 import org.icefit.springicefit.api.model.LoginResponse;
-import org.icefit.springicefit.api.model.RegistrationBody;
+import org.icefit.springicefit.api.model.RegistrationBodyClient;
 import org.icefit.springicefit.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +25,7 @@ public class AuthControllerv1 {
 
     @GetMapping("/register")
     public String registerPage(Model model) {
-        model.addAttribute("registrationBody", new RegistrationBody());
+        model.addAttribute("registrationBody", new RegistrationBodyClient());
         return "register";
     }
 
@@ -37,7 +37,7 @@ public class AuthControllerv1 {
     //@RequestBody - all the data will be pass to the server through a full JSON body
     //@ModelAttribute - will take a query string, so all the data is passed to the server through the url // used for binding data from request param
     @PostMapping("/register")
-    public ResponseEntity registerUser(@Valid @ModelAttribute RegistrationBody registrationBody) {
+    public ResponseEntity registerUser(@Valid @ModelAttribute RegistrationBodyClient registrationBody) {
         try {
             userService.registerUser(registrationBody);
             return ResponseEntity.ok().build();
