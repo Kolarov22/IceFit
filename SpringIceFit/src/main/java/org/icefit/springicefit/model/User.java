@@ -9,12 +9,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+
 @Entity
-@Table(name = "users")
+//@Table(name = "users")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     @Column(name ="id",nullable = false)
     private int id;
     @Column(name ="username",nullable = false, unique = true)

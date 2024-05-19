@@ -2,7 +2,7 @@ package org.icefit.springicefit.api.model;
 
 import jakarta.validation.constraints.*;
 
-public class RegistrationBody {
+public class RegistrationBodyInstructor {
     @NotNull
     @NotBlank
     @Size(min=5,max=64)
@@ -13,8 +13,8 @@ public class RegistrationBody {
     private String email;
 
     /*
-    * PASSWORD MUST HAVE AT MINIMUM 8 CHARACTERS - ONE LETTER AND ONE NUMBER AT LEAST
-    * */
+     * PASSWORD MUST HAVE AT MINIMUM 8 CHARACTERS - ONE LETTER AND ONE NUMBER AT LEAST
+     * */
     @NotNull
     @NotBlank
     @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")
@@ -29,6 +29,18 @@ public class RegistrationBody {
     @NotBlank
     private String lastName;
 
+    @NotNull
+    @NotBlank
+    private String speciality;
+
+
+    public String getSpeciality() {
+        return speciality;
+    }
+
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
+    }
 
     public String getUsername() {
         return username;
@@ -69,4 +81,5 @@ public class RegistrationBody {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
 }
