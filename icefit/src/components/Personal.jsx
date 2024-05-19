@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ClientPersonal = () => {
+const Personal = () => {
   return (
     <div className="flex flex-col gap-3">
       <h2 className="font-semibold font-poppins border-b-2 text-xl border-primary">
@@ -36,4 +36,4 @@ const ClientPersonal = () => {
   );
 }
 
-export default ClientPersonal
+export default Personal

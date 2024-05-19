@@ -1,5 +1,5 @@
 import React from 'react'
-import ClientPersonal from './ClientPersonal'
+import Personal from './Personal'
 import ClientPhysical from './ClientPhysical'
 
 const ClientSettings = () => {
@@ -7,7 +7,7 @@ const ClientSettings = () => {
     <section className='overflow-auto max-h-max my-5'>
     <form action="">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-40 py-16 px-10 items-center justify-center">
-        <ClientPersonal/>
+        <Personal/>
         <ClientPhysical/>
     </div>
     <div className="flex justify-center gap-10 my-10">

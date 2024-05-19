@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const SignIn = () => {
   return (
     <section className="m-4 content-center">
-        <p className="flex justify-end text-gray-400 my-10">Already have an account?<a className="text-primary mx-2 font-medium"href="">Sign In</a></p>
+        <p className="flex justify-end text-gray-400 my-10">Already have an account?<Link to="/signin" className="text-primary mx-2 font-medium"href="">Sign In</Link></p>
         <div className="flex text-gray-400 justify-center items-center font-poppins">
             <form action="" className="flex flex-col items-left gap-1 w-3/4 lg:w-2/4">
                 <h1 className="text-black text-2xl my-3">Create Account</h1>
