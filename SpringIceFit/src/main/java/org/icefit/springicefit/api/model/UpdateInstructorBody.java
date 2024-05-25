@@ -1,61 +1,45 @@
-package org.icefit.springicefit.model;
+package org.icefit.springicefit.api.model;
 
+public class UpdateInstructorBody {
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+    private String firstName;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
+    private String lastName;
 
-
-@Entity
-@Table(name = "instructors")
-public class Instructor extends User{
-
-    @Column(name = "phoneNumber")
     private String phoneNumber;
 
-    @Column(name = "fitnessGoals")
     private String fitnessGoals;
 
-    @Column(name = "nutritionalPreferences")
     private String nutritionalPreferences;
 
-    @Column(name = "height")
     private float height;
 
-    @Column(name = "weight")
     private float weight;
 
-    @Column(name = "bodyFatPercentage")
     private float bodyFat;
 
-    @Column(name = "speciality")
-    private String speciality;
-
-    @Column(name = "aboutMe")
     private String aboutMe;
 
-    @Column(name = "certifications")
+    private String speciality;
+
     private String certifications;
 
 
-    @OneToOne(orphanRemoval = true)
-    @JoinColumn(name = "training_plan_id")
-    @JsonIgnore
-    private TrainingPlan trainingPlan;
-
-    public TrainingPlan getTrainingPlan() {
-        return trainingPlan;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setTrainingPlan(TrainingPlan trainingPlan) {
-        this.trainingPlan = trainingPlan;
-        if (trainingPlan != null && trainingPlan.getInstructor() != this) {
-            trainingPlan.setInstructor(this);
-        }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -113,19 +97,19 @@ public class Instructor extends User{
         this.aboutMe = aboutMe;
     }
 
-    public String getCertifications() {
-        return certifications;
-    }
-
-    public void setCertifications(String certifications) {
-        this.certifications = certifications;
-    }
-
     public String getSpeciality() {
         return speciality;
     }
 
     public void setSpeciality(String speciality) {
         this.speciality = speciality;
+    }
+
+    public String getCertifications() {
+        return certifications;
+    }
+
+    public void setCertifications(String certifications) {
+        this.certifications = certifications;
     }
 }

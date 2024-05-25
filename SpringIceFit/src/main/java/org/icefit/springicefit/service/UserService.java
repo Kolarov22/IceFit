@@ -33,8 +33,6 @@ public class UserService {
         Client user = new Client();
         user.setEmail(registrationBody.getEmail());
         user.setUsername(registrationBody.getUsername());
-//        user.setFirstName(registrationBody.getFirstName());
-//        user.setLastName(registrationBody.getLastName());
         user.setSub(Boolean.FALSE);
         user.setPassword(encryptionService.encryptPassword(registrationBody.getPassword()));
 
@@ -52,11 +50,9 @@ public class UserService {
         Instructor instructor = new Instructor();
         instructor.setEmail(registrationBody.getEmail());
         instructor.setUsername(registrationBody.getUsername());
-        instructor.setFirstName(registrationBody.getFirstName());
-        instructor.setLastName(registrationBody.getLastName());
-        instructor.setSpeciality(registrationBody.getSpeciality());
         instructor.setPassword(encryptionService.encryptPassword(registrationBody.getPassword()));
-        //WHEN CREATING USER - WE AUTOMATICALLY ASSIGN HIS ROLE AS CLIENT
+
+        //WHEN CREATING USER - WE AUTOMATICALLY ASSIGN HIS ROLE AS INSTRUCTOR
         instructor.getRoles().add(Role.ROLE_INSTRUCTOR);
 
         return userDao.save(instructor);
@@ -70,8 +66,6 @@ public class UserService {
         User admin = new User();
         admin.setEmail(registrationBody.getEmail());
         admin.setUsername(registrationBody.getUsername());
-        admin.setFirstName(registrationBody.getFirstName());
-        admin.setLastName(registrationBody.getLastName());
 
         admin.setPassword(encryptionService.encryptPassword(registrationBody.getPassword()));
 
@@ -86,7 +80,7 @@ public class UserService {
         if(certUser.isPresent()){
             User user = certUser.get();
             if (encryptionService.verifyPassword(loginBody.getPassword(),user.getPassword())){
-                System.out.println("user: has logged in");
+//                System.out.println("an user has logged in");
                 return jwtService.generateJWT(user);
             }
         }

@@ -21,26 +21,6 @@ public class RegistrationBodyInstructor {
     @Size(min=8,max=64)
     private String password;
 
-    @NotNull
-    @NotBlank
-    private String firstName;
-
-    @NotNull
-    @NotBlank
-    private String lastName;
-
-    @NotNull
-    @NotBlank
-    private String speciality;
-
-
-    public String getSpeciality() {
-        return speciality;
-    }
-
-    public void setSpeciality(String speciality) {
-        this.speciality = speciality;
-    }
 
     public String getUsername() {
         return username;
@@ -66,20 +46,5 @@ public class RegistrationBodyInstructor {
         this.password = password;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
 }
