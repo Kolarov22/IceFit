@@ -33,8 +33,8 @@ public class UserService {
         Client user = new Client();
         user.setEmail(registrationBody.getEmail());
         user.setUsername(registrationBody.getUsername());
-        user.setFirstName(registrationBody.getFirstName());
-        user.setLastName(registrationBody.getLastName());
+//        user.setFirstName(registrationBody.getFirstName());
+//        user.setLastName(registrationBody.getLastName());
         user.setSub(Boolean.FALSE);
         user.setPassword(encryptionService.encryptPassword(registrationBody.getPassword()));
 

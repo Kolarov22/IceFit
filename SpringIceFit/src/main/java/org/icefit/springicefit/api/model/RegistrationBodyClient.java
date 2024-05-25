@@ -21,13 +21,13 @@ public class RegistrationBodyClient {
     @Size(min=8,max=64)
     private String password;
 
-    @NotNull
-    @NotBlank
-    private String firstName;
-
-    @NotNull
-    @NotBlank
-    private String lastName;
+//    @NotNull
+//    @NotBlank
+//    private String firstName;
+//
+//    @NotNull
+//    @NotBlank
+//    private String lastName;
 
     private Boolean sub;
 
@@ -63,19 +63,19 @@ public class RegistrationBodyClient {
         this.password = password;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+//    public String getFirstName() {
+//        return firstName;
+//    }
+//
+//    public void setFirstName(String firstName) {
+//        this.firstName = firstName;
+//    }
+//
+//    public String getLastName() {
+//        return lastName;
+//    }
+//
+//    public void setLastName(String lastName) {
+//        this.lastName = lastName;
+//    }
 }

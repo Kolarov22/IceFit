@@ -3,6 +3,7 @@ package org.icefit.springicefit.api.controller.auth;
 
 import jakarta.validation.Valid;
 import org.icefit.springicefit.api.model.TrainingPlanBody;
+import org.icefit.springicefit.model.Client;
 import org.icefit.springicefit.model.Instructor;
 import org.icefit.springicefit.model.TrainingPlan;
 import org.icefit.springicefit.service.TrainingService;
@@ -45,7 +46,19 @@ public class TrainingPlanControllerv1 {
     @PostMapping("/add")
     public ResponseEntity addTrainingPlan(){
         //TODO
+        // FROM FRONTEND A BUTTON ADD WILL MAKE A POST REQUEST AFTER YOU LOG IN AS A CLIENT, IT WILL ADD TO THE CLIENT THE TRAINING PLAN
+        // CAN ADD THE TRAINING PLAN FROM ITS ID.
         return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @PostMapping("/add/{planId}")
+    public ResponseEntity<?> addTrainingPlanToClient(@PathVariable Long planId, @AuthenticationPrincipal Client client) {
+        try {
+            trainingService.addTrainingPlanToClient(planId, client);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        }
     }
 
 

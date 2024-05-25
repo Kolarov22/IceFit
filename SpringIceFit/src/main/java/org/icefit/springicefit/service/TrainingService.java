@@ -4,6 +4,7 @@ package org.icefit.springicefit.service;
 import org.icefit.springicefit.api.model.TrainingPlanBody;
 import org.icefit.springicefit.dao.TrainingPlanDao;
 import org.icefit.springicefit.dao.UserDao;
+import org.icefit.springicefit.model.Client;
 import org.icefit.springicefit.model.Instructor;
 import org.icefit.springicefit.model.TrainingPlan;
 import org.icefit.springicefit.model.User;
@@ -42,6 +43,14 @@ public class TrainingService {
 
     public List<TrainingPlan> getTrainingPlans() {
         return trainingPlanDao.findAll();
+    }
+
+    public void addTrainingPlanToClient(Long planId, Client client) throws Exception {
+        TrainingPlan trainingPlan = trainingPlanDao.findById(planId)
+                .orElseThrow(() -> new IllegalArgumentException("Training Plan not found"));
+
+        client.setTrainingPlan(trainingPlan);
+        userDao.save(client);
     }
 
 }
