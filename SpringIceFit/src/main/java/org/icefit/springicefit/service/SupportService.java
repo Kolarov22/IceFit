@@ -22,7 +22,7 @@ public class SupportService {
         Support support = new Support();
         support.setName(supportBody.getName());
         support.setEmail(supportBody.getEmail());
-        support.setMessage(support.getMessage());
+        support.setMessage(supportBody.getMessage());
 
         return supportDao.save(support);
     }

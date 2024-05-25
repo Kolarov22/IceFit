@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 public class Support {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id",nullable = false)
     private int id;
 
