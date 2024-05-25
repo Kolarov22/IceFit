@@ -3,7 +3,8 @@ package org.icefit.springicefit.api.model;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public class TrainingPlanBody {
+public class SupportBody {
+
 
     @NotNull
     @NotBlank
@@ -11,10 +12,11 @@ public class TrainingPlanBody {
 
     @NotNull
     @NotBlank
-    private String description;
+    private String email;
 
-    private float price;
-
+    @NotNull
+    @NotBlank
+    private String message;
 
     public String getName() {
         return name;
@@ -24,19 +26,19 @@ public class TrainingPlanBody {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getEmail() {
+        return email;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public float getPrice() {
-        return price;
+    public String getMessage() {
+        return message;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

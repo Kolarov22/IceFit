@@ -1,11 +1,15 @@
 package org.icefit.springicefit.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+//TODO:
+// ADD MORE @COLUMNS
+//
 @Entity
 @Table(name = "instructors")
 public class Instructor extends User{
@@ -13,26 +17,23 @@ public class Instructor extends User{
     @Column(name = "speciality")
     private String speciality;
 
-    @OneToMany(mappedBy = "instructor", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<TrainingPlan> trainingPlans = new LinkedHashSet<>();
+    @OneToOne(orphanRemoval = true)
+    @JoinColumn(name = "training_plan_id")
+    @JsonIgnore
+    private TrainingPlan trainingPlan;
 
-    public Set<TrainingPlan> getTrainingPlans() {
-        return trainingPlans;
+    public TrainingPlan getTrainingPlan() {
+        return trainingPlan;
     }
 
-    public void setTrainingPlans(Set<TrainingPlan> trainingPlans) {
-        this.trainingPlans = trainingPlans;
+    public void setTrainingPlan(TrainingPlan trainingPlan) {
+        this.trainingPlan = trainingPlan;
+        if (trainingPlan != null && trainingPlan.getInstructor() != this) {
+            trainingPlan.setInstructor(this);
+        }
     }
 
-    public void addTrainingPlan(TrainingPlan trainingPlan) {
-        trainingPlans.add(trainingPlan);
-        trainingPlan.setInstructor(this);
-    }
 
-    public void removeTrainingPlan(TrainingPlan trainingPlan) {
-        trainingPlans.remove(trainingPlan);
-        trainingPlan.setInstructor(null);
-    }
     public String getSpeciality() {
         return speciality;
     }

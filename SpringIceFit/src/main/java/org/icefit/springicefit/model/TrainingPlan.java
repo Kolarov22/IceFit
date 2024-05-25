@@ -4,7 +4,14 @@ package org.icefit.springicefit.model;
 import jakarta.persistence.*;
 import org.hibernate.proxy.HibernateProxy;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+
+//TODO - TRAINING PLAN:
+// ONE TO ONE WITH INSTRUCTOR WITH TRAINING PLAN
+// MANY CLIENTS TO ONE PLAN
 
 @Entity
 @Table(name = "trainingPlans")
@@ -23,20 +30,29 @@ public class TrainingPlan {
     @Column(name = "price", nullable = false)
     private float price;
 
-    @ManyToOne
-    @JoinColumn(name = "instructor_id")
+    @OneToOne(mappedBy = "trainingPlan", orphanRemoval = true)
     private Instructor instructor;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "client_id")
-    private Client client;
+    @OneToMany(mappedBy = "trainingPlan", orphanRemoval = true)
+    private List<Client> clients = new ArrayList<>();
 
-    public Client getClient() {
-        return client;
+    public List<Client> getClients() {
+        return clients;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClients(List<Client> clients) {
+        this.clients = clients;
+    }
+
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
+        if (instructor != null && instructor.getTrainingPlan() != this) {
+            instructor.setTrainingPlan(this);
+        }
     }
 
     public String getName() {
@@ -63,13 +79,6 @@ public class TrainingPlan {
         this.price = price;
     }
 
-    public Instructor getInstructor() {
-        return instructor;
-    }
-
-    public void setInstructor(Instructor instructor) {
-        this.instructor = instructor;
-    }
 
     public Long getId() {
         return id;

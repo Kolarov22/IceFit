@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth/v2")
+@CrossOrigin
 public class AuthControllerv2 {
 
 
@@ -58,15 +59,6 @@ public class AuthControllerv2 {
     }
 
 
-    @PostMapping("/plan")
-    public ResponseEntity addTrainingPlan(@Valid @RequestBody TrainingPlanBody trainingPlanBody, @AuthenticationPrincipal Instructor instructor){
-        try{
-            trainingService.addTrainingBody(trainingPlanBody,instructor);
-            return ResponseEntity.ok().build();
-        } catch (Exception e){
-            return ResponseEntity.status(HttpStatus.CONFLICT).build();
-        }
-    }
 
     @GetMapping("/status")
     public User getLoggedInUserProfile(@AuthenticationPrincipal User user){

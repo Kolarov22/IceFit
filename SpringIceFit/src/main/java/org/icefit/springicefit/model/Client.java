@@ -8,6 +8,13 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+
+//TODO - CLIENT:
+// CLIENT ONE TO ONE WITH INSTRUCTOR ??? TO BE DECIDED OR ONLY WITH TRAINING PLAN AND FROM THERE
+// CLIENT HAS ONE TRAINING PLAN -- TO CHANGE - OK
+// ADD TRAINING PLAN TO CLIENT - ALSO OK - NEED SERVICE AND A POST_MAPPING
+//
+
 @Entity
 @Table(name = "clients")
 public class Client extends User{
@@ -15,16 +22,21 @@ public class Client extends User{
     @Column(name = "subscription")
     private Boolean sub;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<TrainingPlan> trainingPlans = new LinkedHashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "training_plan_id")
+    private TrainingPlan trainingPlan;
 
-    public Set<TrainingPlan> getTrainingPlans() {
-        return trainingPlans;
+    public TrainingPlan getTrainingPlan() {
+        return trainingPlan;
     }
 
-    public void setTrainingPlans(Set<TrainingPlan> trainingPlans) {
-        this.trainingPlans = trainingPlans;
+    public void setTrainingPlan(TrainingPlan trainingPlan) {
+        this.trainingPlan = trainingPlan;
     }
+
+
+
+
 
 
     public Boolean getSub() {

@@ -43,6 +43,22 @@ public class User {
         return authorities;
     }
 
+    public User() {
+    }
+
+    public User(String username, String email, String password, String firstName, String lastName) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+
+    public String getFullName() {
+        return String.format("%s %s", firstName, lastName);
+    }
+
     public List<Role> getRoles() {
         return roles;
     }
