@@ -61,5 +61,14 @@ public class TrainingPlanControllerv1 {
         }
     }
 
+    @GetMapping("/client/training-plan")
+    public ResponseEntity<TrainingPlan> getTrainingPlanForClient(@AuthenticationPrincipal Client client) {
+        TrainingPlan trainingPlan = client.getTrainingPlan();
+        if (trainingPlan != null) {
+            return ResponseEntity.ok(trainingPlan);
+        } else {
+            return ResponseEntity.noContent().build();
+        }
+    }
 
 }

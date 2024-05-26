@@ -1,6 +1,7 @@
 package org.icefit.springicefit.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -51,6 +52,7 @@ public class Client extends User{
 
     @ManyToOne
     @JoinColumn(name = "training_plan_id")
+    @JsonIgnore
     private TrainingPlan trainingPlan;
 
     public TrainingPlan getTrainingPlan() {
