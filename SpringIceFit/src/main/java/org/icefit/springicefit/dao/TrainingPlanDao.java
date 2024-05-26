@@ -16,4 +16,6 @@ public interface TrainingPlanDao extends CrudRepository<TrainingPlan,Long> {
     @Query("SELECT tp FROM TrainingPlan tp JOIN FETCH tp.clients c WHERE c.id = :clientId")
     List<TrainingPlan> findByClientId(@Param("clientId") int clientId);
 
+    
+
 }

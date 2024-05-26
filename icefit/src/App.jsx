@@ -11,6 +11,7 @@ import ClientProfilePage from './pages/ClientProfilePage';
 import InstructorProfilePage from './pages/InstructorProfilePage';
 import InstructorDashboardPage from './pages/InstructorDashboardPage';
 import AddTrainingPlanPage from './pages/AddTrainingPlanPage';
+import ClientDashboardPage from './pages/ClientDashboardPage';
 
 
 
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
       <Route path="/instructor/settings" element={<InstructorProfilePage />} />
       <Route path="/instructor/dashboard" element={<InstructorDashboardPage />} />
       <Route path="/instructor/dashboard/add" element={<AddTrainingPlanPage />} />
+      <Route path="/client/dashboard" element={<ClientDashboardPage />} />
     </>
   )
 );
