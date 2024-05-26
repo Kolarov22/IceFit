@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {jwtDecode} from  "jwt-decode";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -33,7 +34,16 @@ const SignIn = () => {
       const data = await response.json();
       console.log("Login successful! JWT:", data.jwt);
       localStorage.setItem("token", data.jwt);
-      
+      const token = localStorage.getItem("token");
+      if (token) {
+        const decodedToken = jwtDecode(token);
+        const userRole = decodedToken.ROLES;
+        if (userRole === "ROLE_INSTRUCTOR") {
+          window.location.href = "/instructor/dashboard";
+        } else if (userRole === "ROLE_CLIENT") {
+          window.location.href = "/client/dashboard";
+        }
+      }
     } catch (error) {
       console.error("Error:", error);
       

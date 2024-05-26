@@ -20,14 +20,14 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable().cors().disable();
+        http.csrf().disable().cors(withDefaults());
         http.addFilterBefore(jwtRequestFilter, AuthorizationFilter.class); // ADD THE REQUEST FILTER BEFORE THE AUTH
         http.authorizeHttpRequests()
-                .requestMatchers("/","/auth/v1/register","/auth/v1/login","/auth/v2/registerClient","/auth/v2/registerInstructor"
-                        ,"/auth/v2/login","/auth/v2/registerAdmin","v1/training/","v1/training/create","v1/training/plans", "v1/support/","v1/support/create","v1/update/","v1/update/client","v1/training/client/training-plan",
-                        "v1/training/add/**","v1/training/add/").permitAll()
-                .requestMatchers("/auth/v2/status").hasAnyAuthority("ROLE_ADMIN")
-                .requestMatchers("/auth/v2/plan").hasAnyAuthority("ROLE_INSTRUCTOR")
+                .requestMatchers("/","/auth/v1/register","/auth/v1/login","/auth/v2/registerClient","/auth/v2/registerInstructor","/auth/v2/login","v1/support/","v1/support/create","v1/training/plans").permitAll()
+                .requestMatchers("v1/update/","v1/update/instructor","/v1/training/create").hasAnyRole("INSTRUCTOR")
+                .requestMatchers("v1/update/","v1/update/client","v1/training/","v1/training/add/**","v1/training/add/","v1/training/client/training-plan").hasAnyRole("CLIENT")
+                .requestMatchers("/auth/v2/status").hasAnyRole("ADMIN")
+                .requestMatchers("/auth/v2/plan").hasAnyRole("INSTRUCTOR")
                 .anyRequest().authenticated();
         return http.build();
     }
