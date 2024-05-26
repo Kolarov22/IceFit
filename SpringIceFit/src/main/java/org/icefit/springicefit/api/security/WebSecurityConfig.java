@@ -24,7 +24,8 @@ public class WebSecurityConfig {
         http.addFilterBefore(jwtRequestFilter, AuthorizationFilter.class); // ADD THE REQUEST FILTER BEFORE THE AUTH
         http.authorizeHttpRequests()
                 .requestMatchers("/","/auth/v1/register","/auth/v1/login","/auth/v2/registerClient","/auth/v2/registerInstructor"
-                        ,"/auth/v2/login","/auth/v2/registerAdmin","v1/training/","v1/training/create","v1/training/plans", "v1/support/","v1/support/create","v1/update/","v1/update/client","/v1/training/client/training-plan").permitAll()
+                        ,"/auth/v2/login","/auth/v2/registerAdmin","v1/training/","v1/training/create","v1/training/plans", "v1/support/","v1/support/create","v1/update/","v1/update/client","v1/training/client/training-plan",
+                        "v1/training/add/**","v1/training/add/").permitAll()
                 .requestMatchers("/auth/v2/status").hasAnyAuthority("ROLE_ADMIN")
                 .requestMatchers("/auth/v2/plan").hasAnyAuthority("ROLE_INSTRUCTOR")
                 .anyRequest().authenticated();

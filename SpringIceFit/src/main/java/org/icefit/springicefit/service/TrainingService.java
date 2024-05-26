@@ -45,6 +45,9 @@ public class TrainingService {
         return trainingPlanDao.findAll();
     }
 
+    public List<TrainingPlan> getTrainingPlanForClient(int id) {
+        return trainingPlanDao.findByClientId(id);
+    }
     public void addTrainingPlanToClient(Long planId, Client client) throws Exception {
         TrainingPlan trainingPlan = trainingPlanDao.findById(planId)
                 .orElseThrow(() -> new IllegalArgumentException("Training Plan not found"));

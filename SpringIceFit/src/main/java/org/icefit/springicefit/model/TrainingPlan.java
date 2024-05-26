@@ -33,7 +33,7 @@ public class TrainingPlan {
     @OneToOne(mappedBy = "trainingPlan", orphanRemoval = true)
     private Instructor instructor;
 
-    @OneToMany(mappedBy = "trainingPlan", orphanRemoval = true)
+    @OneToMany(mappedBy = "trainingPlan", orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Client> clients = new ArrayList<>();
 
     public List<Client> getClients() {

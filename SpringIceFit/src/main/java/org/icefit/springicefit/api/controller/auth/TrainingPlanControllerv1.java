@@ -3,6 +3,7 @@ package org.icefit.springicefit.api.controller.auth;
 
 import jakarta.validation.Valid;
 import org.icefit.springicefit.api.model.TrainingPlanBody;
+import org.icefit.springicefit.dao.UserDao;
 import org.icefit.springicefit.model.Client;
 import org.icefit.springicefit.model.Instructor;
 import org.icefit.springicefit.model.TrainingPlan;
@@ -21,6 +22,7 @@ import java.util.List;
 public class TrainingPlanControllerv1 {
 
     private TrainingService trainingService;
+    private UserDao userDao;
     public TrainingPlanControllerv1(UserService userService, TrainingService trainingService) {
         this.trainingService = trainingService;
     }
@@ -36,19 +38,10 @@ public class TrainingPlanControllerv1 {
         }
     }
 
-
     @GetMapping("/plans")
     public ResponseEntity<List<TrainingPlan>> getAllTrainingPlans() {
         List<TrainingPlan> trainingPlans = trainingService.getTrainingPlans();
         return ResponseEntity.ok(trainingPlans);
-    }
-
-    @PostMapping("/add")
-    public ResponseEntity addTrainingPlan(){
-        //TODO
-        // FROM FRONTEND A BUTTON ADD WILL MAKE A POST REQUEST AFTER YOU LOG IN AS A CLIENT, IT WILL ADD TO THE CLIENT THE TRAINING PLAN
-        // CAN ADD THE TRAINING PLAN FROM ITS ID.
-        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @PostMapping("/add/{planId}")
@@ -62,10 +55,10 @@ public class TrainingPlanControllerv1 {
     }
 
     @GetMapping("/client/training-plan")
-    public ResponseEntity<TrainingPlan> getTrainingPlanForClient(@AuthenticationPrincipal Client client) {
-        TrainingPlan trainingPlan = client.getTrainingPlan();
-        if (trainingPlan != null) {
-            return ResponseEntity.ok(trainingPlan);
+    public ResponseEntity<List<TrainingPlan>> getTrainingPlanForClient(@AuthenticationPrincipal Client client) {
+        List<TrainingPlan> trainingPlans = trainingService.getTrainingPlanForClient(client.getId());
+        if (trainingPlans != null) {
+            return ResponseEntity.ok(trainingPlans);
         } else {
             return ResponseEntity.noContent().build();
         }
