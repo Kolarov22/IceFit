@@ -25,8 +25,11 @@ services:
       - mariadb
   frontend:
     build: ./icefit
+    image: frontendicefit
     ports:
       - 5173:5173
+    networks:
+      - spring1
 volumes:
   mysqlvol: {}
 networks:
