@@ -1,0 +1,33 @@
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: mariadb
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=iceFit
+    networks:
+      - spring1
+    volumes:
+      - mysqlvol:/var/lib/mysql
+  backend:
+    image: spring-boot-docker
+    container_name: iceFit
+    ports:
+      - 8080:8080
+    build: ./SpringIceFit
+    networks:
+      - spring1
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mariadb://mariadb:3306/iceFit
+    depends_on:
+      - mariadb
+  frontend:
+    build: ./icefit
+    ports:
+      - 5173:5173
+volumes:
+  mysqlvol: {}
+networks:
+  spring1: {}
