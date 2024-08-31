@@ -12,11 +12,16 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.TestPropertySource;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
+@SpringBootTest(properties = "spring.profiles.active=test")
 public class TrainingServiceTest {
 
     @Mock
@@ -55,6 +60,8 @@ public class TrainingServiceTest {
         assertEquals("Plan Name", result.getName());
         verify(trainingPlanDao, times(2)).save(any(TrainingPlan.class));
         verify(userDao, times(1)).save(any(Instructor.class));
+        System.out.println("SUCCESS: createTrainingBody test passed.");
+
     }
 
     @Test
@@ -72,5 +79,7 @@ public class TrainingServiceTest {
 
         assertEquals(trainingPlan, client.getTrainingPlan());
         verify(userDao, times(1)).save(client);
+        System.out.println("SUCCESS: addTrainingPlanToClient test passed.");
+
     }
 }
