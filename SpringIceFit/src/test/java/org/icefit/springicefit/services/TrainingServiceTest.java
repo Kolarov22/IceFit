@@ -60,7 +60,6 @@ public class TrainingServiceTest {
         assertEquals("Plan Name", result.getName());
         verify(trainingPlanDao, times(2)).save(any(TrainingPlan.class));
         verify(userDao, times(1)).save(any(Instructor.class));
-        System.out.println("SUCCESS: createTrainingBody test passed.");
 
     }
 
@@ -79,7 +78,6 @@ public class TrainingServiceTest {
 
         assertEquals(trainingPlan, client.getTrainingPlan());
         verify(userDao, times(1)).save(client);
-        System.out.println("SUCCESS: addTrainingPlanToClient test passed.");
 
     }
 }
