@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import {jwtDecode} from  "jwt-decode";
+import { useState } from "react";
+import { jwtDecode } from "jwt-decode";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -46,7 +46,6 @@ const SignIn = () => {
       }
     } catch (error) {
       console.error("Error:", error);
-      
     }
   };
 
