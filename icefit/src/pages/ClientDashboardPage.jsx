@@ -1,9 +1,8 @@
-import React from 'react'
-import Navigator from  '../components/Navigator'
-import ClientDashboard from '../components/ClientDashboard';
+import Navigator from "../components/Navigator";
+import ClientDashboard from "../components/ClientDashboard";
 
 const ClientDashboardPage = () => {
-    return (
+  return (
     <>
       <section className="ellipses">
         <div className="ellipse ellipse1"></div>
@@ -17,7 +16,6 @@ const ClientDashboardPage = () => {
       </div>
     </>
   );
-  
-}
+};
 
-export default ClientDashboardPage
+export default ClientDashboardPage;

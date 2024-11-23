@@ -1,7 +1,6 @@
-import React from 'react'
-import IceFit from '../assets/images/IceFit.svg'
-import { ChevronRightIcon } from '@heroicons/react/24/solid'
-import { Link } from 'react-router-dom'
+import IceFit from "../assets/images/IceFit.svg";
+import { ChevronRightIcon } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
 
 const LandingHero = () => {
   return (
@@ -31,6 +30,6 @@ const LandingHero = () => {
       </div>
     </div>
   );
-}
+};
 
-export default LandingHero
+export default LandingHero;

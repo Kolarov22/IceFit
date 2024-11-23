@@ -1,55 +1,54 @@
-import React from 'react'
-import { MagnifyingGlassIcon, ChevronDownIcon } from '@heroicons/react/16/solid'
-import ClientRow from './ClientRow';
-import { useState } from 'react';
+import {
+  MagnifyingGlassIcon,
+  ChevronDownIcon,
+} from "@heroicons/react/16/solid";
+import ClientRow from "./ClientRow";
+import { useState } from "react";
 
 const InstructorDashboard = () => {
-   const [formData, setFormData] = useState({
-     name: "",
-     description: "",
-     price: "",
-   });
+  const [formData, setFormData] = useState({
+    name: "",
+    description: "",
+    price: "",
+  });
 
-   const handleChange = (e) => {
-     const { name, value } = e.target;
-     setFormData((prevData) => ({
-       ...prevData,
-       [name]: value,
-     }));
-   };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-   const handleSubmit = async (e) => {
-     e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-     try {
-       const token = localStorage.getItem("token");
-       const response = await fetch(
-         "http://localhost:8080/v1/training/create",
-         {
-           method: "POST",
-           headers: {
-             "Content-Type": "application/json",
-             Authorization: `Bearer ${token}`,
-           },
-           body: JSON.stringify(formData),
-         }
-       );
+    try {
+      const token = localStorage.getItem("token");
+      const response = await fetch("http://localhost:8080/v1/training/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(formData),
+      });
 
-       if (response.ok) {
-         console.log("Training plan created successfully");
-         // Clear form after successful submission
-         setFormData({
-           name: "",
-           description: "",
-           price: "",
-         });
-       } else {
-         console.error("Failed to create training plan");
-       }
-     } catch (error) {
-       console.error("Error creating training plan:", error);
-     }
-   };
+      if (response.ok) {
+        console.log("Training plan created successfully");
+        // Clear form after successful submission
+        setFormData({
+          name: "",
+          description: "",
+          price: "",
+        });
+      } else {
+        console.error("Failed to create training plan");
+      }
+    } catch (error) {
+      console.error("Error creating training plan:", error);
+    }
+  };
 
   return (
     <section className="bg-white shadow-lg rounded-lg  w-full md:w-3/4 mx-auto font-poppins my-20 py-5">
@@ -159,6 +158,6 @@ const InstructorDashboard = () => {
       </form>
     </section>
   );
-}
+};
 
-export default InstructorDashboard
+export default InstructorDashboard;

@@ -1,6 +1,5 @@
-import React from 'react'
-import Navigator from '../components/Navigator'
-import InstructorSettings from '../components/InstructorSettings'
+import Navigator from "../components/Navigator";
+import InstructorSettings from "../components/InstructorSettings";
 const InstructorProfilePage = () => {
   return (
     <>
@@ -12,10 +11,10 @@ const InstructorProfilePage = () => {
       </section>
       <div className="glass overflow-auto">
         <Navigator />
-        <InstructorSettings/>
+        <InstructorSettings />
       </div>
     </>
   );
-}
+};
 
-export default InstructorProfilePage
+export default InstructorProfilePage;

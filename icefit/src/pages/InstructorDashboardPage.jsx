@@ -1,6 +1,5 @@
-import React from 'react'
-import Navigator from '../components/Navigator'
-import InstructorDashboard from '../components/InstructorDashboard'
+import Navigator from "../components/Navigator";
+import InstructorDashboard from "../components/InstructorDashboard";
 const InstructorDashboardPage = () => {
   return (
     <>
@@ -16,6 +15,6 @@ const InstructorDashboardPage = () => {
       </div>
     </>
   );
-}
+};
 
-export default InstructorDashboardPage
+export default InstructorDashboardPage;

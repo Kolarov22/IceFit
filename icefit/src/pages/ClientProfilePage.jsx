@@ -1,7 +1,5 @@
-import React from 'react'
-import Navigator from '../components/Navigator'
-import ClientSettings from '../components/ClientSettings'
-
+import Navigator from "../components/Navigator";
+import ClientSettings from "../components/ClientSettings";
 
 const ClientProfilePage = () => {
   return (
@@ -18,6 +16,6 @@ const ClientProfilePage = () => {
       </div>
     </>
   );
-}
+};
 
-export default ClientProfilePage
+export default ClientProfilePage;

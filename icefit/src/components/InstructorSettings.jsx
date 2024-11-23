@@ -1,4 +1,3 @@
-import React from "react";
 import Personal from "./Personal";
 import InstructorPhysical from "./InstructorPhysical";
 import { useState } from "react";
@@ -34,10 +33,10 @@ const InstructorSettings = () => {
         "http://localhost:8080/v1/update/instructor",
         {
           method: "POST",
-          headers: { 
+          headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer " + localStorage.getItem('token')
-           },
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
           body: JSON.stringify(formData),
         }
       );

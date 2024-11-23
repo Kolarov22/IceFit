@@ -1,13 +1,7 @@
-import React from 'react'
-import { useState } from 'react';
-import {EyeIcon, PlusIcon } from '@heroicons/react/16/solid'
-import TrainingPlanItem from './TrainingPlanItem';
+import { EyeIcon, PlusIcon } from "@heroicons/react/16/solid";
+import TrainingPlanItem from "./TrainingPlanItem";
 
-
-
-
-
-const TrainingPlan = ({week}) => {
+const TrainingPlan = ({ week }) => {
   return (
     <section className="flex flex-col items-center">
       <div className=" rounded-lg shadow-lg w-2/4 mx-auto my-20 gap-5 border-gray-300 border">
@@ -46,6 +40,6 @@ const TrainingPlan = ({week}) => {
       </div>
     </section>
   );
-}
+};
 
-export default TrainingPlan
+export default TrainingPlan;

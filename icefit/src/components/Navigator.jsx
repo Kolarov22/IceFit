@@ -3,7 +3,7 @@ import { jwtDecode } from "jwt-decode";
 
 const Navigator = () => {
   if (localStorage.getItem("token") == null) {
-    window.location.href = "/sign-in";
+    window.location.href = "/signin";
   }
 
   const role =
@@ -21,7 +21,7 @@ const Navigator = () => {
           <a href="">Chat</a>
         </li>
         <li>
-          <Link to="/instructor/settings">Settings</Link>
+          <Link to={`/${role}/settings`}>Settings</Link>
         </li>
         <li>
           <Link to="/support">Support</Link>

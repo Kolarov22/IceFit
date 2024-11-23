@@ -1,7 +1,6 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import LandingHero from '../components/LandingHero'
-import '../layouts/App.css'
+import Navbar from "../components/Navbar";
+import LandingHero from "../components/LandingHero";
+import "../layouts/App.css";
 
 const LandingPage = () => {
   return (
@@ -18,6 +17,6 @@ const LandingPage = () => {
       </div>
     </>
   );
-}
+};
 
-export default LandingPage
+export default LandingPage;

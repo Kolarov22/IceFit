@@ -1,6 +1,5 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import Subscriptions from '../components/Subscriptions'
+import Navbar from "../components/Navbar";
+import Subscriptions from "../components/Subscriptions";
 const FeaturesPage = () => {
   return (
     <>
@@ -16,6 +15,6 @@ const FeaturesPage = () => {
       </div>
     </>
   );
-}
+};
 
-export default FeaturesPage
+export default FeaturesPage;

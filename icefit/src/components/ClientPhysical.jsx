@@ -1,6 +1,4 @@
-import React from 'react'
-
-const ClientPhysical = ({onInputChange}) => {
+const ClientPhysical = ({ onInputChange }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     onInputChange(name, value);
@@ -11,11 +9,29 @@ const ClientPhysical = ({onInputChange}) => {
         PHYSICAL STATS AND ACTIVITY LEVEL
       </h2>
       <label htmlFor="">HEIGHT</label>
-      <input className="border border-gray-300" type="number" name="height" id="" onChange={handleChange}/>
+      <input
+        className="border border-gray-300"
+        type="number"
+        name="height"
+        id=""
+        onChange={handleChange}
+      />
       <label htmlFor="">WEIGHT</label>
-      <input className="border border-gray-300" type="number" name="weight" id="" onChange={handleChange}/>
+      <input
+        className="border border-gray-300"
+        type="number"
+        name="weight"
+        id=""
+        onChange={handleChange}
+      />
       <label htmlFor="">BODY-FAT PERCENTAGE</label>
-      <input className="border border-gray-300" type="number" name="bodyFat" id="" onChange={handleChange}/>
+      <input
+        className="border border-gray-300"
+        type="number"
+        name="bodyFat"
+        id=""
+        onChange={handleChange}
+      />
       <h2 className="font-semibold font-poppins border-b-2 text-xl border-primary">
         TELLS US ABOUT YOUR ACTIVITY LEVEL
       </h2>
@@ -36,6 +52,6 @@ const ClientPhysical = ({onInputChange}) => {
       ></textarea>
     </div>
   );
-}
+};
 
-export default ClientPhysical
+export default ClientPhysical;

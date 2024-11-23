@@ -41,7 +41,7 @@ const Navbar = () => {
               </button>
             ) : (
               <Link to="/signin">
-                <button className="text-sm font-medium">Sign In</button>
+                <button className=" font-medium">Sign In</button>
               </Link>
             )}
 

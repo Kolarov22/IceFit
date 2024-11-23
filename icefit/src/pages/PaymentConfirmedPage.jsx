@@ -1,5 +1,4 @@
-import React from 'react'
-import PaymentConfirmed from '../components/PaymentConfirmed'
+import PaymentConfirmed from "../components/PaymentConfirmed";
 
 const PaymentConfirmedPage = () => {
   return (
@@ -15,6 +14,6 @@ const PaymentConfirmedPage = () => {
       </div>
     </>
   );
-}
+};
 
-export default PaymentConfirmedPage
+export default PaymentConfirmedPage;

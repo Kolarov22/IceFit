@@ -1,6 +1,5 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import Contact from '../components/Contact'
+import Navbar from "../components/Navbar";
+import Contact from "../components/Contact";
 
 const SupportPage = () => {
   return (
@@ -17,6 +16,6 @@ const SupportPage = () => {
       </div>
     </>
   );
-}
+};
 
-export default SupportPage
+export default SupportPage;

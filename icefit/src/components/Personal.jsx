@@ -1,5 +1,4 @@
-import React from 'react'
-
+// eslint-disable-next-line react/prop-types
 const Personal = ({ onInputChange }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -70,4 +69,4 @@ const Personal = ({ onInputChange }) => {
   );
 };
 
-export default Personal
+export default Personal;

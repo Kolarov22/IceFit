@@ -1,5 +1,3 @@
-import React from 'react'
-
 const InstructorPhysical = ({ onInputChange }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -57,4 +55,4 @@ const InstructorPhysical = ({ onInputChange }) => {
   );
 };
 
-export default InstructorPhysical
+export default InstructorPhysical;

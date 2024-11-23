@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const SignIn = () => {
@@ -61,11 +61,14 @@ const SignIn = () => {
         </Link>
       </p>
       <div className="flex text-gray-400 justify-center items-center font-poppins">
-        <form className="flex flex-col items-left gap-1 w-3/4 lg:w-2/4" onSubmit={handleSubmit}>
+        <form
+          className="flex flex-col items-left gap-1 w-3/4 lg:w-2/4"
+          onSubmit={handleSubmit}
+        >
           <h1 className="text-black text-2xl my-3">Create Account</h1>
           <label htmlFor="name">Name</label>
           <input
-            className="border border-gray-400 rounded-md w-full h-10 bg-gray-50"
+            className="border border-gray-400 rounded-md w-full h-10 bg-gray-50 p-1"
             type="text"
             name="username"
             id="name"
@@ -75,7 +78,7 @@ const SignIn = () => {
           <br />
           <label htmlFor="email">Email</label>
           <input
-            className="border border-gray-400 rounded-md w-full h-10 bg-gray-50"
+            className="border border-gray-400 rounded-md w-full h-10 bg-gray-50 p-1"
             type="email"
             name="email"
             id="email"
@@ -85,7 +88,7 @@ const SignIn = () => {
           <br />
           <label htmlFor="password">Password</label>
           <input
-            className="border border-gray-400 rounded-md w-full h-10 bg-gray-50"
+            className="border border-gray-400 rounded-md w-full h-10 bg-gray-50 p-1"
             type="password"
             name="password"
             id="password"

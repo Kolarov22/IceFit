@@ -1,5 +1,4 @@
-import React from 'react'
-import SignIn from '../components/SignIn'
+import SignIn from "../components/SignIn";
 
 const SignInPage = () => {
   return (
@@ -11,10 +10,10 @@ const SignInPage = () => {
         <div className="ellipse ellipse4"></div>
       </section>
       <div className="glass overflow-hidden">
-        <SignIn/>
+        <SignIn />
       </div>
     </>
   );
-}
+};
 
-export default SignInPage
+export default SignInPage;

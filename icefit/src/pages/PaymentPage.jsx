@@ -1,5 +1,4 @@
-import React from 'react'
-import PaymentInterface from '../components/PaymentInterface'
+import PaymentInterface from "../components/PaymentInterface";
 
 const PaymentPage = () => {
   return (
@@ -15,6 +14,6 @@ const PaymentPage = () => {
       </div>
     </>
   );
-}
+};
 
-export default PaymentPage
+export default PaymentPage;

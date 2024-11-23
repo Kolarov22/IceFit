@@ -1,6 +1,5 @@
-import React from 'react'
-import Navigator from '../components/Navigator'
-import TrainingPlan from '../components/TrainingPlan'
+import Navigator from "../components/Navigator";
+import TrainingPlan from "../components/TrainingPlan";
 
 const AddTrainingPlanPage = () => {
   return (
@@ -13,10 +12,10 @@ const AddTrainingPlanPage = () => {
       </section>
       <div className="glass overflow-auto">
         <Navigator />
-        <TrainingPlan week={5}/>
+        <TrainingPlan week={5} />
       </div>
     </>
   );
-}
+};
 
-export default AddTrainingPlanPage
+export default AddTrainingPlanPage;

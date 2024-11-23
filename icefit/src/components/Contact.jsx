@@ -1,8 +1,6 @@
-import React from 'react'
-
-const  submitForm = async (e) =>{
+const submitForm = async (e) => {
   e.preventDefault();
- 
+
   const formData = new FormData(e.target);
   const support = Object.fromEntries(formData);
   console.log(JSON.stringify(support));
@@ -24,7 +22,7 @@ const  submitForm = async (e) =>{
     .catch((error) => {
       console.error("Error:", error); // Handling any errors that occur
     });
-}
+};
 
 const Contact = () => {
   return (
@@ -33,7 +31,11 @@ const Contact = () => {
         <h1 className="text-primary text-3xl font-poppins font-bold pb-20">
           CONTACT US
         </h1>
-        <form className="flex flex-col w-3/4 lg:w-2/4 font-poppins" onSubmit={submitForm} action="">
+        <form
+          className="flex flex-col w-3/4 lg:w-2/4 font-poppins"
+          onSubmit={submitForm}
+          action=""
+        >
           <label htmlFor="name">Enter Name</label>
           <input
             className="border-solid border-black border-2"
@@ -68,6 +70,6 @@ const Contact = () => {
       </div>
     </section>
   );
-}
+};
 
-export default Contact
+export default Contact;

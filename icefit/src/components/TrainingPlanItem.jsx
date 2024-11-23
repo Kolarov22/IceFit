@@ -1,15 +1,19 @@
-import React from 'react'
 import {
   ChevronUpIcon,
   ChevronDownIcon,
   Bars3Icon,
 } from "@heroicons/react/16/solid";
 
-const TrainingPlanItem = ({exercise}) => {
+const TrainingPlanItem = ({ exercise }) => {
   return (
     <li className="flex flex-row justify-between py-3">
       <span className="flex items-center gap-2">
-        <input className="w-5 h-5 accent-primary" type="checkbox" name="" id="completedTask" />
+        <input
+          className="w-5 h-5 accent-primary"
+          type="checkbox"
+          name=""
+          id="completedTask"
+        />
         <p className="font-poppins">{exercise}</p>
       </span>
       <span className="flex items-center gap-2 justify-center">
@@ -25,6 +29,6 @@ const TrainingPlanItem = ({exercise}) => {
       </span>
     </li>
   );
-}
+};
 
-export default TrainingPlanItem
+export default TrainingPlanItem;

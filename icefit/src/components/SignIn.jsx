@@ -61,7 +61,7 @@ const SignIn = () => {
           </h1>
           <label htmlFor="email">Username</label>
           <input
-            className="border border-gray-400 rounded-md w-full h-10 bg-gray-50"
+            className="border border-gray-400 rounded-md w-full h-10 bg-gray-50 p-1"
             type="text"
             name="username"
             id="username"
@@ -71,7 +71,7 @@ const SignIn = () => {
           <br />
           <label htmlFor="password">Password</label>
           <input
-            className="border border-gray-400 rounded-md w-full h-10 bg-gray-50"
+            className="border border-gray-400 rounded-md w-full h-10 bg-gray-50 p-1"
             type="password"
             name="password"
             id="password"
