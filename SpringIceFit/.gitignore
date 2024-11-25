@@ -32,4 +32,3 @@ build/
 ### VS Code ###
 .vscode/
 /src/main/java/org/icefit/springicefit/TestDatabase.java
-src/main/resources/application.properties
