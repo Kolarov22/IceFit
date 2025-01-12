@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react";
+import Personal from "./Personal";
+
 const InstructorSettings = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -17,8 +20,6 @@ const InstructorSettings = () => {
       saturday: { start: "", end: "" },
       sunday: { start: "", end: "" }
     },
-    preferredWorkoutTypes: [],
-    profilePicture: null,
     socialLinks: {
       linkedin: "",
       instagram: "",
