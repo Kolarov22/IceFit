@@ -194,3 +194,5 @@ const InstructorSettings = () => {
     </section>
   );
 };
+
+export default InstructorSettings;
