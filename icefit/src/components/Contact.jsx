@@ -1,30 +1,49 @@
+import { useState } from "react";
+
+const validateForm = (data) => {
+  const errors = {};
+  if (!data.name.trim()) errors.name = "Name is required";
+  if (!data.email.trim()) errors.email = "Email is required";
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+    errors.email = "Invalid email format";
+  }
+  if (!data.message.trim()) errors.message = "Message is required";
+  return errors;
+};
+
 const submitForm = async (e) => {
   e.preventDefault();
-
   const formData = new FormData(e.target);
-  const support = Object.fromEntries(formData);
-  console.log(JSON.stringify(support));
+  const data = Object.fromEntries(formData);
+  
+  const errors = validateForm(data);
+  if (Object.keys(errors).length > 0) {
+    setFormErrors(errors);
+    return;
+  }
 
   fetch("http://localhost:8080/v1/support/create", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(support),
+    body: JSON.stringify(data),
   })
     .then((response) => {
       if (!response.ok) {
         throw new Error("Network response was not ok " + response.statusText);
       }
-      return response.json(); // Parsing the response body as JSON
+      return response.json();
     })
     .then((data) => {
-      console.log("Success:", data); // Handling the response data
+      console.log("Success:", data);
     })
     .catch((error) => {
-      console.error("Error:", error); // Handling any errors that occur
+      console.error("Error:", error);
     });
 };
 
 const Contact = () => {
+  const [formErrors, setFormErrors] = useState({});
+
   return (
     <section className="">
       <div className="flex flex-col items-center justify-center mt-20">
@@ -43,6 +62,7 @@ const Contact = () => {
             name="name"
             id="name"
           />
+          {formErrors.name && <span className="text-red-500 text-sm">{formErrors.name}</span>}
           <br />
           <label htmlFor="email">Enter Email</label>
           <input
@@ -51,6 +71,7 @@ const Contact = () => {
             name="email"
             id="email"
           />
+          {formErrors.email && <span className="text-red-500 text-sm">{formErrors.email}</span>}
           <br />
           <label htmlFor="message">Message</label>
           <textarea
@@ -60,6 +81,7 @@ const Contact = () => {
             cols="30"
             rows="10"
           ></textarea>
+          {formErrors.message && <span className="text-red-500 text-sm">{formErrors.message}</span>}
           <br />
           <input
             className="bg-primary rounded text-white font-poppins text-sm font-medium  py-2 md:px-4 w-1/6 place-self-center"
