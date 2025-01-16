@@ -4,7 +4,11 @@ import Spinner from "./Spinner";
 import { useState } from "react";
 
 const ClientDashboard = () => {
-  const { data: trainingPlans, error: trainingPlansError, isLoading: trainingPlansLoading } = useQuery({
+  const {
+    data: trainingPlans,
+    error: trainingPlansError,
+    isLoading: trainingPlansLoading,
+  } = useQuery({
     queryKey: ["trainingPlans"],
     queryFn: async () => {
       const response = await fetch("http://localhost:8080/v1/training/plans");
@@ -12,10 +16,14 @@ const ClientDashboard = () => {
         throw new Error("Failed to fetch training plans");
       }
       return response.json();
-    }
+    },
   });
 
-  const { data: activeTrainingPlans, error: activeTrainingPlansError, isLoading: activeTrainingPlansLoading } = useQuery({
+  const {
+    data: activeTrainingPlans,
+    error: activeTrainingPlansError,
+    isLoading: activeTrainingPlansLoading,
+  } = useQuery({
     queryKey: ["activeTrainingPlans"],
     queryFn: async () => {
       const token = localStorage.getItem("token");
@@ -40,13 +48,13 @@ const ClientDashboard = () => {
   const [progress, setProgress] = useState({
     currentWeight: "",
     targetWeight: "",
-    completedWorkouts: 0
+    completedWorkouts: 0,
   });
 
   const [detailedProgress, setDetailedProgress] = useState({
     weeklyGoals: [],
     upcomingSession: null,
-    recentActivities: []
+    recentActivities: [],
   });
 
   const addClientToPlan = async (planId) => {
@@ -73,11 +81,17 @@ const ClientDashboard = () => {
   };
 
   if (trainingPlansError) {
-    return <div>Error loading training plans: {trainingPlansError.message}</div>;
+    return (
+      <div>Error loading training plans: {trainingPlansError.message}</div>
+    );
   }
 
   if (activeTrainingPlansError) {
-    return <div>Error loading active training plans: {activeTrainingPlansError.message}</div>;
+    return (
+      <div>
+        Error loading active training plans: {activeTrainingPlansError.message}
+      </div>
+    );
   }
 
   return (
@@ -108,7 +122,7 @@ const ClientDashboard = () => {
             {detailedProgress.weeklyGoals.map((goal, index) => (
               <div key={index} className="flex items-center gap-2">
                 <input type="checkbox" checked={goal.completed} />
-                <span className={goal.completed ? 'line-through' : ''}>
+                <span className={goal.completed ? "line-through" : ""}>
                   {goal.description}
                 </span>
               </div>

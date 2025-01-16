@@ -1,4 +1,5 @@
-import React from 'react'
+import React from "react";
+import PropTypes from "prop-types";
 
 const TrainingPlanEntry = ({
   id,
@@ -24,5 +25,15 @@ const TrainingPlanEntry = ({
     </ul>
   );
 };
+TrainingPlanEntry.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  instructor: PropTypes.shape({
+    username: PropTypes.string,
+  }).isRequired,
+  addClientToPlan: PropTypes.func.isRequired,
+};
 
-export default TrainingPlanEntry
+export default TrainingPlanEntry;
